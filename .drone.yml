@@ -1,0 +1,8 @@
+pipeline:
+  build:
+    image: docker
+    commands:
+      - docker build --rm -t gmsdev/puppet .
+      - docker run --rm gmsdev/puppet --test
+      - docker push gmsdev/puppet
+      - docker rmi gmsdev/puppet
