@@ -16,3 +16,4 @@ EXPOSE 8139
 # set command
 CMD ["/usr/bin/puppet", "agent", "--no-daemonize"]
 
+
