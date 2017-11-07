@@ -5,7 +5,9 @@ pipeline:
     group: ping
     commands:
       - sleep 15
-      - mongo --host mongo --eval "{ ping: 5 }"
+      - mongo 
+        - '--host mongo' 
+        - '--eval "{ ping: 5 }"'
 
   ping2:
     image: mongo:3.0
