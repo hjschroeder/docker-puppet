@@ -18,3 +18,5 @@ services:
   mongo:
     image: mongo:3.0
     command: [ --smallfiles ]
+    volumes:
+    - /data/drone/db:/data/db
