@@ -1,5 +1,7 @@
 pipeline:
   build:
+    docker:
+      storage_driver: overlay
     image: docker
     commands:
       - docker build --rm -t gmsdev/puppet .
