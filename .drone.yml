@@ -1,24 +1,8 @@
-
 pipeline:
-  ping:
-    image: mongo:3.0
-    group: ping
+  build:
+    image: plugins/docker
     commands:
-      - sleep 15
-      - mongo 
-        - '--host mongo' 
-        - '--eval "{ ping: 5 }"'
-
-  ping2:
-    image: mongo:3.0
-    group: ping
-    commands:
-      - sleep 15
-      - 'mongo --host mongo --eval "{ ping: 5 }"'
-
-services:
-  mongo:
-    image: mongo:3.0
-    command: [ --smallfiles ]
-    volumes:
-    - /data/drone/db:/data/db
+      - docker build --rm -t gmsdev/puppet .
+      - docker run --rm gmsdev/puppet --test
+      - docker push gmsdev/puppet
+      - docker rmi gmsdev/puppet
