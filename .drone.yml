@@ -3,6 +3,5 @@ pipeline:
     image: plugins/docker
     commands:
       - docker build --rm -t gmsdev/puppet:3.4.3 .
-      - docker run --rm gmsdev/puppet:3.4.3 --test
       - docker push gmsdev/puppet:3.4.3
-      - docker rmi gmsdev/puppet3.4.3
+
